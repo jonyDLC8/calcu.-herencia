@@ -1,0 +1,305 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CalculadoraPublic
+{
+    class menu 
+    {
+        private int num = 0;
+
+
+
+        public int Menu()
+
+        {
+            Console.WriteLine("Opciones de operaciones");
+            Console.WriteLine("_______________________");
+            Console.WriteLine("1.Suma");
+            Console.WriteLine("2.Resta");
+            Console.WriteLine("3.Multiplicacion");
+            Console.WriteLine("4.Division");
+            Console.WriteLine("5.Potencia");
+            Console.WriteLine("6.Raiz");
+            Console.WriteLine("7.Salir");
+            Console.Write("Usted elegio la opcion: ");
+            try
+            {
+                num = int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Por favor, intente de nuevo");
+            }
+            
+            Console.Clear();
+            return num;
+        
+        }
+    }
+}
+
+
+using System;
+
+
+namespace CalculadoraPublic
+{
+    class Program
+    {
+        
+        static No_c_como_llamarlo Operacion = new No_c_como_llamarlo();
+        
+        static menu menu = new menu();
+        static void Main(string[] args)
+        {
+            int Opcion = 0;
+
+            while (Opcion != 7)
+
+            {
+                Opcion = menu.Menu();
+
+                if (Opcion == 1)
+
+                {
+                    Console.WriteLine(Operacion.Resultado('s'));
+                }
+
+                else if (Opcion == 2)
+
+                {
+                    Console.WriteLine(Operacion.Resultado('r'));
+                }
+
+                else if (Opcion == 3)
+
+                {
+                    Console.WriteLine(Operacion.Resultado('m'));
+                }
+
+                else if (Opcion == 4)
+
+                {
+                    Console.WriteLine(Operacion.Resultado('d'));
+
+                }
+
+                else if (Opcion == 5)
+                {
+                    Console.WriteLine(Operacion.Resultado('p'));
+                }
+                else if (Opcion == 6)
+                {
+                    Console.WriteLine(Operacion.Resultado('q'));
+                }
+            }
+
+
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
+
+
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using System.Text;
+
+namespace CalculadoraPublic
+{
+    class ope
+    {
+        public Operaciones Operacion = new Operaciones();
+
+        public double n = 0;
+
+
+
+        public string Resultado(char t)
+
+        {
+
+            int Tot = 0;
+
+
+
+            char op = 's';
+           
+
+
+
+
+            while (op != 'n')
+
+            {
+
+                if (t == 's')
+
+                {
+
+                    Tot = Operacion.Suma(Tot, PedirVal());
+
+                }
+
+                else if (t == 'r')
+
+                {
+
+                    Tot = Operacion.Resta(Tot, PedirVal());
+
+                }
+                else if (t == 'm')
+
+                {
+                    Tot = Operacion.Multiplicacion(Tot, PedirVal());
+                }
+                else if (t == 'd')
+
+                {
+                    Tot = Operacion.Division(Tot, PedirVal());
+                }
+                else if (t == 'p')
+
+                {
+
+                    Tot = Operacion.potencia(Tot, PedirVal());
+                }
+                else if (t == 'q')
+                {
+                    Tot = Operacion.Raiz(Tot, PedirVal());
+                }
+
+
+                bool a = false;
+                Console.WriteLine("¿Quiere entrar otro valor?");
+                 Console.WriteLine("[Si]                 [No]");
+              
+                while (a == false)
+                {
+                 try
+                 {
+                        
+                 op = char.Parse(Console.ReadLine());
+                   a = true;
+                  }
+                 catch
+                    {
+                    Console.WriteLine("Ingrese valores alfabeticos");
+                    op = char.Parse(Console.ReadLine());
+                       
+                    }
+               
+                     
+                }
+               
+            }
+
+           
+
+            return ("El resultado de la operacion es: " + Tot);
+
+        }
+
+
+
+        private int PedirVal()
+        {
+            int Val = 0;
+            bool Est = false;
+
+
+
+            while (Est == false)
+
+            {
+
+                Console.Write("ingrese un Numero: ");
+
+                try
+
+                {
+
+                    Val = int.Parse(Console.ReadLine());
+
+                    Est = true;
+
+                }
+
+                catch
+
+                {
+                    Console.WriteLine("Caracter o operacion invalida, por favor intente de nuevo");
+                }
+
+            }
+            return Val;
+
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CalculadoraPublic
+{
+
+    class Operaciones : herencia
+    {
+      
+        
+        public int Suma(int a, int b)
+
+        {
+            return (a + b);
+        }
+
+        public int Resta(int a, int b)
+
+        {
+            return (a - b);
+        }
+
+        public int Multiplicacion(int a, int b)
+
+        {
+
+            return (a * b);
+        }
+
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CalculadoraPublic
+{
+    class herencia
+    {
+
+        public int Division(int a, int b)
+        {
+            return (a / b);
+        }
+        public int potencia(int a, int b)
+
+        {
+            return ((int)Math.Pow(a, b));
+        }
+        public int Raiz(int a, int b)
+        {
+            return ((int)Math.Sqrt(a));
+        }
+    }
+}
