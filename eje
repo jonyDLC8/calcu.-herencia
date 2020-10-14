@@ -48,7 +48,7 @@ namespace CalculadoraPublic
     class Program
     {
         
-        static No_c_como_llamarlo Operacion = new No_c_como_llamarlo();
+        static opciones Operacion = new opciones();
         
         static menu menu = new menu();
         static void Main(string[] args)
